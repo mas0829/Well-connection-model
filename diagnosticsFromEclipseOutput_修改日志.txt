@@ -1,0 +1,10 @@
+% 将ecl文件转换为mrst文件格式
+[G, rock] = eclOut2mrst(init, egrid);
+
+% 将状态参数转换为mrst的states文件
+states = convertRestartToStates(prefix, G, 'steps', 10);
+
+
+% 
+
+
