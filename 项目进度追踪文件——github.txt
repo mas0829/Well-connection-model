@@ -87,3 +87,13 @@ eg：打散的Ecl文件；封装完毕的Ecl文件。
 eg：调用自带的流动诊断函数。
 
 
+
+五、Github & GitHash上传常见问题
+
+git config --global http.sslVerify "false"
+解除ssl验证
+
+git config --global --unset http.proxy
+git config --global --unset https.pro
+取消代理
+
