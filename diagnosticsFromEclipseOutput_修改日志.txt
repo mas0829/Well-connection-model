@@ -1,10 +1,33 @@
 % 将ecl文件转换为mrst文件格式
 [G, rock] = eclOut2mrst(init, egrid);
 
+
 % 将状态参数转换为mrst的states文件
 states = convertRestartToStates(prefix, G, 'steps', 10);
 
 
-% 
+% 读取数模初始化文件
+init = readEclipseOutputFileUnFmt([prefix, '.INIT']);
+egrid = readEclipseOutputFileUnFmt([prefix, '.EGRID']);
 
 
+% 按照格式划分读取合文件，还是子文件
+streamReader = @readEclipseOutputStream;
+
+
+readEclipseOutputStream
+%Read single ECLIPSE output/result stream
+%主要用于识别网格的不同格式
+
+[name, data] = readFieldUnFmt(fid, varargin)
+%Extract next field from an unformatted ECLIPSE output file
+% 获得类似“E:\连通模型项目\mrst-2021b\examples\data\SPE9\Simulation-Output”的网格和重启动格式文件
+
+
+[G, rock] = eclOut2mrst(init, egrid);
+% 添加网格信息和性质信息
+
+states = convertRestartToStates(prefix, G, 'steps', 10);
+% 将ecl文件转换为状态参数
+
+% 待添加代码逻辑图
